@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pantry-relay"
+version = "1.0.0"
+description = "User-sourced pantry label gates and idempotent stock-use receipts"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = []
+
+[project.scripts]
+pantry-relay = "pantry_relay.__main__:main"
+
+[tool.setuptools]
+packages = ["pantry_relay"]
+
+[tool.setuptools.package-data]
+pantry_relay = ["openapi.json"]

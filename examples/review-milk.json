@@ -1,0 +1,14 @@
+{
+  "expected_revision": 0,
+  "changes": {
+    "after_open_hours": 48,
+    "after_open_source_id": "label_milk_reviewed"
+  },
+  "sources": [
+    {
+      "id": "label_milk_reviewed",
+      "kind": "user_label",
+      "text": "Fictional demo: user rechecked the actual package and entered a 48-hour instruction. Do not copy this duration to real food."
+    }
+  ]
+}
