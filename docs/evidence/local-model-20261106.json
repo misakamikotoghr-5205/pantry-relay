@@ -1,0 +1,191 @@
+{
+  "metadata": {
+    "observed_at": "2026-11-06T04:59:24.235914+00:00",
+    "scenario_as_of": "2026-11-04T12:00:00+08:00",
+    "fictional_inputs": "examples/pantry.json",
+    "prompt": "只用一种配料的简单早餐",
+    "provider": "local-ollama",
+    "model": "qwen2.5:0.5b",
+    "real_inference": true,
+    "inventory_unchanged": true,
+    "recipe_ids": [
+      "plain_oats",
+      "tomato_eggs"
+    ],
+    "limitations": [
+      "Single fixed fictional scenario, not a quality benchmark or food-safety assessment.",
+      "No Alipay or other external platform call; no real household data."
+    ],
+    "observed_preference_mismatch": "First single-ingredient request returned both plain_oats and two-ingredient tomato_eggs; structural acceptance does not establish preference compliance.",
+    "ollama_version": "0.40.15",
+    "model_digest": "a8b0c51577010a279d933d14c2a8ab4b268079d44c5c8830c0a93900f1827c67",
+    "model_size_bytes": 397821319,
+    "model_source": "https://ollama.com/library/qwen2.5:0.5b",
+    "model_license": "Apache-2.0; model weights not bundled"
+  },
+  "suggestion": {
+    "provider": "local-ollama",
+    "model": "qwen2.5:0.5b",
+    "inference_performed": true,
+    "recipe_ids": [
+      "plain_oats",
+      "tomato_eggs"
+    ],
+    "candidates": [
+      {
+        "recipe_id": "plain_oats",
+        "name": "清水燕麦（用户菜谱）",
+        "servings": 1,
+        "source_id": "recipe_plain_oats",
+        "can_consume": true,
+        "excluded": [],
+        "allocations": [
+          {
+            "lot_id": "oats",
+            "ingredient": "oat",
+            "quantity": "50",
+            "unit": "g",
+            "priority_at": "2026-12-01T15:59:59.999999Z",
+            "constraints": [
+              {
+                "kind": "best_before",
+                "at": "2026-12-01T15:59:59.999999Z",
+                "source_ids": [
+                  "label_oats"
+                ]
+              }
+            ],
+            "confirmation_source_id": "demo_confirmation"
+          }
+        ],
+        "eligible_stock_shortages": [],
+        "shopping_list": [],
+        "priority_at": "2026-12-01T15:59:59.999999Z"
+      },
+      {
+        "recipe_id": "tomato_eggs",
+        "name": "番茄鸡蛋（用户菜谱）",
+        "servings": 1,
+        "source_id": "recipe_tomato_eggs",
+        "can_consume": true,
+        "excluded": [],
+        "allocations": [
+          {
+            "lot_id": "tomato_open",
+            "ingredient": "tomato",
+            "quantity": "150",
+            "unit": "g",
+            "priority_at": "2026-11-04T10:00:00.000000Z",
+            "constraints": [
+              {
+                "kind": "use_by",
+                "at": "2026-11-05T15:59:59.999999Z",
+                "source_ids": [
+                  "label_tomato_a"
+                ]
+              },
+              {
+                "kind": "after_open_label",
+                "at": "2026-11-04T10:00:00.000000Z",
+                "source_ids": [
+                  "opened_tomato",
+                  "label_tomato_a"
+                ]
+              }
+            ],
+            "confirmation_source_id": "demo_confirmation"
+          },
+          {
+            "lot_id": "tomato_sealed",
+            "ingredient": "tomato",
+            "quantity": "50",
+            "unit": "g",
+            "priority_at": "2026-11-08T15:59:59.999999Z",
+            "constraints": [
+              {
+                "kind": "use_by",
+                "at": "2026-11-08T15:59:59.999999Z",
+                "source_ids": [
+                  "label_tomato_b"
+                ]
+              }
+            ],
+            "confirmation_source_id": "demo_confirmation"
+          },
+          {
+            "lot_id": "eggs",
+            "ingredient": "egg",
+            "quantity": "2",
+            "unit": "each",
+            "priority_at": "2026-11-07T15:59:59.999999Z",
+            "constraints": [
+              {
+                "kind": "best_before",
+                "at": "2026-11-07T15:59:59.999999Z",
+                "source_ids": [
+                  "label_eggs"
+                ]
+              }
+            ],
+            "confirmation_source_id": "demo_confirmation"
+          }
+        ],
+        "eligible_stock_shortages": [],
+        "shopping_list": [],
+        "priority_at": "2026-11-04T10:00:00.000000Z"
+      }
+    ],
+    "snapshot_revision": 0,
+    "inventory_changed": false,
+    "safety_guarantee": false,
+    "note": "Model preference selection only. Sourced label gates and stock allocation remain deterministic; consume rechecks them."
+  },
+  "second_trial": {
+    "observed_at": "2026-11-06T05:00:29.921974+00:00",
+    "prompt": "只推荐燕麦粥，返回plain_oats一个菜谱ID，不要其他菜谱",
+    "actual_output": {
+      "provider": "local-ollama",
+      "model": "qwen2.5:0.5b",
+      "inference_performed": true,
+      "recipe_ids": [
+        "plain_oats"
+      ],
+      "candidates": [
+        {
+          "recipe_id": "plain_oats",
+          "name": "清水燕麦（用户菜谱）",
+          "servings": 1,
+          "source_id": "recipe_plain_oats",
+          "can_consume": true,
+          "excluded": [],
+          "allocations": [
+            {
+              "lot_id": "oats",
+              "ingredient": "oat",
+              "quantity": "50",
+              "unit": "g",
+              "priority_at": "2026-12-01T15:59:59.999999Z",
+              "constraints": [
+                {
+                  "kind": "best_before",
+                  "at": "2026-12-01T15:59:59.999999Z",
+                  "source_ids": [
+                    "label_oats"
+                  ]
+                }
+              ],
+              "confirmation_source_id": "demo_confirmation"
+            }
+          ],
+          "eligible_stock_shortages": [],
+          "shopping_list": [],
+          "priority_at": "2026-12-01T15:59:59.999999Z"
+        }
+      ],
+      "snapshot_revision": 0,
+      "inventory_changed": false,
+      "safety_guarantee": false,
+      "note": "Model preference selection only. Sourced label gates and stock allocation remain deterministic; consume rechecks them."
+    }
+  }
+}
