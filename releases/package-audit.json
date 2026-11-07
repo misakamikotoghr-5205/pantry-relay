@@ -1,0 +1,42 @@
+{
+  "archive": "releases/pantry-relay-offline-html.zip",
+  "bytes": 28529,
+  "sha256": "a098763efc7e964c70385b741f22f98d4bd500167a61a1389ced7708ba716cd4",
+  "root_index": true,
+  "crc_and_source_match": true,
+  "runtime_network_dependencies": false,
+  "browser_qa_performed_by_this_build": false,
+  "alipay_deployment_or_submission": false,
+  "files": [
+    {
+      "path": "LICENSE.txt",
+      "bytes": 1082,
+      "sha256": "a399e9795f309ed9d0a7cf609f7e3bae08a2c2d2b1b8cf5cf5ecd125073bac13"
+    },
+    {
+      "path": "app.js",
+      "bytes": 32643,
+      "sha256": "e858433b38293480995257433ed0ec0bb340922f302fe86f20dbd6cb4a271d19"
+    },
+    {
+      "path": "core.js",
+      "bytes": 31248,
+      "sha256": "d52a86e59e127a011f17646c6194f8991e38d747fe6acf31c457cd6400bcea17"
+    },
+    {
+      "path": "demo.js",
+      "bytes": 10287,
+      "sha256": "7bb5ba4ded9695b2af3876edee658b1175caa634335af81b5397094ba41b92d9"
+    },
+    {
+      "path": "index.html",
+      "bytes": 13209,
+      "sha256": "36d6ec79a6dcc95cfd7e231ebdb3303d252dbe14039609332df71c9b4ccb9ab5"
+    },
+    {
+      "path": "styles.css",
+      "bytes": 11631,
+      "sha256": "92dc808478367e55d6328ce47ce0d07b152ece4c7f29cb11c4b9bd3825b7a4cd"
+    }
+  ]
+}

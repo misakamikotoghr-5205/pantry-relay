@@ -1,5 +1,7 @@
 # 可公开演示的调用契约
 
+另有已实现的[离线交互应用](web-application.md)：`npm run build:web`生成`dist/`与`releases/pantry-relay-offline-html.zip`，根入口`index.html`，全部资源本地。它独立运行，不调用下述Python API或模型。保留现有Sites manifest由主线程管理；HTML/ZIP准备与本人预览不能等同支付宝认可部署或提交。
+
 本项目已有 HTTP 路由与 OpenAPI 描述，当前未部署，也没有阿宝/Q Muse 连接。正式赛事可按官方门户接受的 URL 或 ZIP 交付；Q Muse 为可选路线，其实际提报需后续平台验证，不能由一个通用 API 推断已接入。
 
 本地启动：

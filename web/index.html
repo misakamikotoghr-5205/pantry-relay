@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <meta
+      name="description"
+      content="离线食材批次核查、可解释用料计划与人工确认账本。"
+    />
+    <title>Pantry Relay · 食材接力</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="core.js" defer></script>
+    <script src="demo.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#workspace">跳到库存与计划</a>
+    <header class="shell masthead">
+      <a class="wordmark" href="#top" aria-label="Pantry Relay 首页"
+        ><span class="mark" aria-hidden="true">↻</span> PANTRY RELAY
+        <span>食材接力</span></a
+      >
+      <span class="offline"
+        ><i aria-hidden="true"></i> 离线规则 · 由你确认</span
+      >
+    </header>
+    <main id="top" class="shell">
+      <section class="intro" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">A SMALLER PLAN. A CLEARER TRAIL.</p>
+          <h1 id="page-title">先核对，<br /><em>再接力。</em></h1>
+          <p class="lede">
+            看清每一批的记录，再决定这一餐用什么。<br />预览不会扣库存，确认后每一笔都有来处。
+          </p>
+        </div>
+        <aside class="clock-note">
+          <span class="ring" aria-hidden="true">24<span>h</span></span>
+          <p>开封后的时钟<br /><strong>从你抄录的标签开始。</strong></p>
+          <small>圆环为示意图，不表示任何食品的建议保鲜时长。</small>
+        </aside>
+      </section>
+      <div class="notice">
+        <strong id="data-mode">虚构示例库存</strong
+        ><span
+          >日期仅用于计划排序与阻断，不证明食物安全。请自己核对实际标签、储存与当前状态；不确定的批次保持待核查。</span
+        >
+      </div>
+      <section class="toolbar" aria-label="库存操作">
+        <div>
+          <button id="add-lot" class="primary">＋ 录入食材</button
+          ><button id="add-recipe">＋ 我的菜谱</button>
+        </div>
+        <div>
+          <button id="export">导出账本</button
+          ><button id="import">导入库存</button
+          ><button id="reset" class="quiet">重置示例</button
+          ><input
+            id="import-file"
+            type="file"
+            accept=".json,application/json"
+            hidden
+          />
+        </div>
+      </section>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+      <p id="error" class="error" role="alert" hidden></p>
+      <div id="workspace" class="workspace" tabindex="-1">
+        <section class="stock-panel" aria-labelledby="stock-title">
+          <div class="section-top">
+            <div>
+              <p class="eyebrow">01 / WHAT IS HERE</p>
+              <h2 id="stock-title">手边的食材</h2>
+            </div>
+            <span id="revision" class="small"></span>
+          </div>
+          <div id="metrics" class="metrics" aria-label="库存统计"></div>
+          <p id="clock" class="small"></p>
+          <div id="lots" class="lots"></div>
+        </section>
+        <section class="plan-panel" aria-labelledby="plan-title">
+          <div class="section-top">
+            <div>
+              <p class="eyebrow">02 / ONE MEAL AT A TIME</p>
+              <h2 id="plan-title">这一餐，怎么接力</h2>
+            </div>
+            <button id="refresh" class="quiet">重新核查</button>
+          </div>
+          <form id="settings-form" class="settings">
+            <div class="field-row">
+              <label
+                >份数<input
+                  id="servings"
+                  type="number"
+                  min="1"
+                  max="20"
+                  step="1"
+                  required /></label
+              ><label
+                >估计成本上限 · 元<input
+                  id="budget"
+                  type="number"
+                  min="0"
+                  max="999999.99"
+                  step="0.01"
+                  required
+              /></label>
+            </div>
+            <label
+              >排除过敏标签 <span class="hint">逗号分隔；仅匹配已录入标签</span
+              ><input id="allergens" placeholder="例如 peanut, milk"
+            /></label>
+            <label
+              >不使用的食材<select
+                id="avoid"
+                multiple
+                size="3"
+                aria-describedby="avoid-help"
+              ></select
+            ></label>
+            <small id="avoid-help"
+              >可多选。电脑按 Ctrl / ⌘ 选择，手机使用系统选择器。</small
+            >
+            <label class="check"
+              ><input id="simple-first" type="checkbox" />
+              同等可用时，优先食材种类少的菜谱</label
+            >
+            <button type="submit">应用偏好并重新计算</button>
+            <small
+              >成本是你填写的每份估计，既非实时价格，也不是支付或采购报价。没有估计的菜谱需补录后确认。</small
+            >
+          </form>
+          <div id="candidates" class="candidates"></div>
+          <p class="small">
+            每道菜是独立预览，不能把多个候选当成已预留的一周菜单。过敏过滤不识别未标注成分、交叉接触或医疗禁忌。
+          </p>
+        </section>
+      </div>
+      <section class="ledger" aria-labelledby="ledger-title">
+        <div class="section-top">
+          <div>
+            <p class="eyebrow">03 / YOUR DECISION TRAIL</p>
+            <h2 id="ledger-title">本地回执</h2>
+          </div>
+          <p id="save-status" class="small"></p>
+        </div>
+        <div id="receipts"></div>
+        <details>
+          <summary>查看本地操作记录</summary>
+          <ol id="audit"></ol>
+        </details>
+        <p class="small">
+          这里只记录软件库存记账，不证明实际取用、做饭或食物安全。撤回是记账纠错，不能恢复已经消耗的实物。
+        </p>
+      </section>
+    </main>
+    <footer class="shell footer">
+      <span>Pantry Relay · Original software / MIT</span
+      ><span
+        >本页使用确定性规则，无运行时LLM、支付或外部API；未接入支付宝。<br />单标签本地账本，不提供云端同步、跨标签事务或防篡改证明。</span
+      >
+    </footer>
+
+    <dialog id="lot-dialog" aria-labelledby="lot-dialog-title">
+      <form id="lot-form">
+        <div class="dialog-top">
+          <h2 id="lot-dialog-title">录入食材</h2>
+          <button
+            type="button"
+            data-close="lot-dialog"
+            aria-label="关闭食材表单"
+          >
+            ×
+          </button>
+        </div>
+        <p id="lot-context" class="small"></p>
+        <label
+          >批次名称<input
+            id="lot-name"
+            maxlength="160"
+            required
+            placeholder="例如 冰箱上层的燕麦 A"
+        /></label>
+        <div class="field-row">
+          <label>食材<select id="lot-ingredient"></select></label
+          ><label id="custom-name-label" hidden
+            >新食材名称<input id="custom-name" maxlength="60"
+          /></label>
+        </div>
+        <div class="field-row">
+          <label
+            >当前数量<input
+              id="lot-quantity"
+              type="number"
+              min="0"
+              step="0.001"
+              required /></label
+          ><label
+            >单位<select id="lot-unit">
+              <option value="g">克 g</option>
+              <option value="ml">毫升 ml</option>
+              <option value="each">个</option>
+            </select></label
+          >
+        </div>
+        <label
+          >已知过敏标签<input
+            id="lot-allergens"
+            placeholder="例如 milk；不做自动识别"
+        /></label>
+        <fieldset>
+          <legend>核对日期与来源</legend>
+          <div class="field-row">
+            <label
+              >日期类别<select id="label-kind">
+                <option value="use_by">包装食用期限 use by</option>
+                <option value="best_before">包装最佳赏味期 best before</option>
+                <option value="user_limit">本人计划日期（非包装期限）</option>
+              </select></label
+            ><label>录入的日期<input id="label-date" type="date" /></label>
+          </div>
+          <label
+            >标签原文／本人记录<textarea
+              id="label-source"
+              rows="2"
+              maxlength="4000"
+              placeholder="如实抄录；没有就留空，保持待核查"
+            ></textarea></label
+          ><label>包装日期（可选）<input id="packed-date" type="date" /></label
+          ><label
+            >包装日期原文（填包装日期时必填）<input
+              id="packed-source"
+              maxlength="4000"
+          /></label>
+        </fieldset>
+        <fieldset>
+          <legend>开封记录（未开封则留空）</legend>
+          <label
+            >开封时刻 · 设备本地时区<input
+              id="opened-at"
+              type="datetime-local" /></label
+          ><label
+            >开封记录来源<input
+              id="opened-source"
+              maxlength="4000"
+              placeholder="例如本人在该时刻记录开封" /></label
+          ><label
+            >标签明确写的开封后小时数<input
+              id="open-hours"
+              type="number"
+              min="1"
+              max="8760"
+              step="1"
+              placeholder="不知道就留空，不填通用建议" /></label
+          ><label
+            >开封后说明原文<textarea
+              id="open-label-source"
+              rows="2"
+              maxlength="4000"
+            ></textarea>
+          </label>
+        </fieldset>
+        <label class="check"
+          ><input id="lot-confirmed" type="checkbox" />
+          我已亲自核对标签、储存记录与当前状态</label
+        ><label
+          >核查备注<textarea
+            id="confirmation-source"
+            rows="2"
+            maxlength="4000"
+            placeholder="勾选确认时必填。确认不会覆盖缺日期、日期冲突或已过时限。"
+          ></textarea>
+        </label>
+        <p class="small">
+          保存修正会替换该批当前日期转录，旧来源原文保留。核查不能改余额或食材身份；无来源、冲突或已过时限仍会阻断。
+        </p>
+        <p id="lot-error" class="error" role="alert" hidden></p>
+        <button type="submit" class="primary">保存记录并重新核查</button>
+      </form>
+    </dialog>
+    <dialog id="recipe-dialog" aria-labelledby="recipe-dialog-title">
+      <form id="recipe-form">
+        <div class="dialog-top">
+          <h2 id="recipe-dialog-title">我的菜谱</h2>
+          <button
+            type="button"
+            data-close="recipe-dialog"
+            aria-label="关闭菜谱表单"
+          >
+            ×
+          </button>
+        </div>
+        <p class="small">
+          只使用你录入的菜谱和用量，不生成食品安全或营养结论。
+        </p>
+        <label
+          >菜谱名称<input id="recipe-name" maxlength="160" required
+        /></label>
+        <div id="recipe-ingredients"></div>
+        <button id="add-requirement" type="button">＋ 添加一种食材</button
+        ><label>已知过敏标签<input id="recipe-allergens" /></label
+        ><label
+          >每份估计成本 · 元<input
+            id="recipe-cost"
+            type="number"
+            min="0"
+            max="999999.99"
+            step="0.01"
+            required /></label
+        ><label
+          >自有菜谱来源／做法记录<textarea
+            id="recipe-source"
+            maxlength="4000"
+            rows="4"
+            required
+          ></textarea>
+        </label>
+        <p id="recipe-error" class="error" role="alert" hidden></p>
+        <button type="submit" class="primary">保存菜谱</button>
+      </form>
+    </dialog>
+    <dialog id="review-dialog" aria-labelledby="review-title">
+      <div class="dialog-top">
+        <h2 id="review-title">最后核对这一笔</h2>
+        <button type="button" data-close="review-dialog" aria-label="取消审阅">
+          ×
+        </button>
+      </div>
+      <div id="review-content"></div>
+      <label class="check"
+        ><input id="approve-check" type="checkbox" />
+        我核对了本次批次、用量、份数与估计成本，同意仅扣减本地账本</label
+      >
+      <p class="small">
+        确认时按当前设备时刻重新核查；数据变化或经过标签时限时，本次审阅会失效。
+      </p>
+      <p id="review-error" class="error" role="alert" hidden></p>
+      <button id="confirm-use" class="primary" disabled>确认记账</button>
+    </dialog>
+  </body>
+</html>

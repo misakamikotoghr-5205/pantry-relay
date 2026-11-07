@@ -1,0 +1,14 @@
+{
+  "name": "pantry-relay-offline-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Buildless offline pantry review and inventory application",
+  "license": "MIT",
+  "scripts": {
+    "test:web": "node --test web/tests/*.test.cjs",
+    "check:web": "node scripts/check-web.cjs",
+    "build:web": "node scripts/build-web.cjs",
+    "verify:web": "npm run test:web && npm run check:web && npm run build:web",
+    "dev": "python3 -m http.server 5173 --bind 127.0.0.1 --directory dist"
+  }
+}

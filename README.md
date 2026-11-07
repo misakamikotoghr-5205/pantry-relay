@@ -2,9 +2,24 @@
 
 把用户录入的包装标签、开封记录、库存和自有菜谱，变成**有来源的先用计划和可重放的库存消费回执**。Python 3.11+ 标准库，默认离线运行，不需要付费 API。
 
-当前是 CLI + 鉴权 JSON API 原型：库存/来源门禁/消费链路已运行验证。2026-11-06 已通过生产选择器实际调用本地 Ollama 0.40.15 / Qwen2.5 0.5B，记录两次虚构场景运行及偏好误选局限，见[真实运行证据](docs/evidence/local-model-20261106.json)。未接入支付宝/阿宝、未部署、未提报赛事。
+现有 **可操作的离线浏览器应用 + CLI + 鉴权 JSON API**。浏览器版可录入批次和自有菜谱、修改份数/估计预算/精确排除项、查看来源与阻断原因、人工审阅确认用料、刷新恢复、撤回最近一笔并导出账本。它独立运行确定性规则，不调用LLM、支付或外部API。
 
-## 一分钟运行
+2026-11-06，Python生产选择器曾实际调用本地 Ollama 0.40.15 / Qwen2.5 0.5B，记录两次虚构场景运行及偏好误选局限，见[真实运行证据](docs/evidence/local-model-20261106.json)。这项Python证据不代表浏览器版调用了模型。支付宝/阿宝接入、认可平台部署与赛事提交均未完成。
+
+## 打开交互应用
+
+无需前端框架或运行时依赖。可直接打开 `web/index.html` 使用classic JS；如果浏览器对`file://`存储有限制，会降级为当前页内存并提示导出。也可构建后通过loopback静态服务运行：
+
+```sh
+npm run verify:web
+npm run dev
+```
+
+访问 `http://127.0.0.1:5173`。`dist/`只含六个离线文件；[上传ZIP](releases/pantry-relay-offline-html.zip)根目录含`index.html`，附[字节/CRC/SHA审计](releases/package-audit.json)。准备HTML/ZIP不代表已被赛事后台接受。
+
+初始数据明确是虚构示例，日期按当前日期平移；示例时长不是食品保鲜建议。真实使用前自行录入和核对。浏览器版已在本轮完成实际浏览器交互检查，详见[交互应用说明](docs/web-application.md)与[真实核验记录](docs/evidence/offline-web-20261107.json)。本机HTTP体验不等于支付宝部署或手机WebView验收。
+
+## 一分钟运行 Python CLI
 
 系统需有 IANA 时区数据（Linux 通常由 `tzdata` 提供）。在本目录执行：
 

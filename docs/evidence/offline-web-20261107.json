@@ -1,0 +1,53 @@
+{
+  "recorded_date": "2026-11-07",
+  "source_base_head": "d5c8c433bf5134c9e6030ead39cc23763fbad791",
+  "scope": "Interactive offline browser application added to the existing repository; not an Alipay integration or submission",
+  "node_tests_passed": 19,
+  "original_python_tests_passed": 26,
+  "static_dom_references_checked": 126,
+  "runtime_network_dependencies": false,
+  "runtime_llm_inference": false,
+  "payment_calls": false,
+  "actual_browser_qa": {
+    "performed_by": "main operator using CUA on local HTTP web page",
+    "initial_lots": {
+      "eligible": 3,
+      "held": 5
+    },
+    "unchecked_confirmation_disabled": true,
+    "human_confirmed_tomato_egg": {
+      "tomato_before": "300",
+      "tomato_after": "100",
+      "egg_before": "4",
+      "egg_after": "2",
+      "revision_before": 0,
+      "revision_after": 1
+    },
+    "refresh_preserved_receipt_and_balances": true,
+    "undo_restored_quantities_and_kept_reversed_receipt": true,
+    "undo_revision": 2,
+    "one_yuan_budget_blocks_over_budget_candidates": true,
+    "new_twenty_gram_unconfirmed_undated_tomato_held": true,
+    "screenshots": "private evidence held",
+    "limitations": [
+      "Not a phone/WebView or Alipay environment",
+      "Not an authenticated ZIP upload acceptance test",
+      "Later UTF-8 capacity repair verified with non-UI regression, not claimed as another browser run"
+    ],
+    "real_export_download_and_file_chooser_import_observed": true,
+    "import_result": "Current inventory restored as a new ledger at revision 0; UI explicitly excludes historical receipts from trusted state."
+  },
+  "independent_read_only_review": {
+    "date_boundary_cases": 31,
+    "ordinary_binding_cases": 12,
+    "receipt_recovery_forgery_fixed_and_reverified": true,
+    "invalid_optional_packaging_objects_fixed_and_reverified": true,
+    "ascii_and_chinese_utf8_size_repros_fixed_and_reverified": true
+  },
+  "zip_audit": "../../releases/package-audit.json",
+  "site_identity_preserved": true,
+  "published_by_this_work": false,
+  "alipay_connected": false,
+  "formally_submitted": false,
+  "safety_guarantee": false
+}
