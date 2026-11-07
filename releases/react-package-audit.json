@@ -1,0 +1,39 @@
+{
+  "archive": "releases/pantry-relay-react-html.zip",
+  "bytes": 97053,
+  "sha256": "a00467601c223060394315e152568de4c98434120aab137d750da21e4239beba",
+  "root_index": true,
+  "crc_and_build_match": true,
+  "production_browser_loaded_and_review_consume_reload_undo_verified": true,
+  "licenses_included": true,
+  "remote_runtime_api_or_model": false,
+  "qmuse_uploaded_or_deployed": false,
+  "official_contest_submitted": false,
+  "files": [
+    {
+      "path": "LICENSE.txt",
+      "bytes": 1082,
+      "sha256": "a399e9795f309ed9d0a7cf609f7e3bae08a2c2d2b1b8cf5cf5ecd125073bac13"
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.txt",
+      "bytes": 102383,
+      "sha256": "f646b835d87f494d87f3f8d2d6677151d3dac7149b0d583dd33f20c065f4fc29"
+    },
+    {
+      "path": "assets/index-Dg3lGRtK.css",
+      "bytes": 9404,
+      "sha256": "fc31eb3b59184d29701ef9a414fd9be5f800bfe687801b84c12c3b0e7cfe1591"
+    },
+    {
+      "path": "assets/index-bohgKTnG.js",
+      "bytes": 273977,
+      "sha256": "a3d4ec61aaa111a9c75d089063f2d0e5b50889e6b865722afe9e8880c5d4037f"
+    },
+    {
+      "path": "index.html",
+      "bytes": 536,
+      "sha256": "5a9d84a1690617e584c88929eebb9d49b11835750ccbe51d9c3ed4b0ae767ee1"
+    }
+  ]
+}

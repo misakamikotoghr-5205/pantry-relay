@@ -1,0 +1,70 @@
+{
+  "recorded_at_utc": "2026-11-07T10:34:51.196894+00:00",
+  "source_base_commit": "962ceddf7171b3c92b62be12e5f950b7b199de12",
+  "application": "qmuse/ real React + Vite frontend, self-contained source",
+  "browser_checks": {
+    "actual_operator": "main agent using CUA on local Vite HTTP application",
+    "initial_eligible_lots": 3,
+    "initial_held_lots": 5,
+    "unchecked_confirmation_disabled": true,
+    "explicit_review_confirm_tomato": "300 -> 100 g",
+    "explicit_review_confirm_eggs": "4 -> 2 items",
+    "confirmed_revision": 1,
+    "reload_retained_quantities_and_receipt": true,
+    "undo_restored_300g_and_4items_and_kept_reversed_receipt": true,
+    "undo_revision": 2,
+    "one_yuan_budget_blocked_candidates": true,
+    "excluding_oats_blocked_oat_recipe": true,
+    "new_unconfirmed_undated_20g_lot_held": true,
+    "real_export_download_and_file_chooser_import": true,
+    "import_started_revision_zero_without_historical_receipts": true,
+    "second_tab_budget_change_canceled_checked_review_and_disabled_stale_review_actions": true,
+    "shortage_recipe_cost_edit_10_to_9_saved_without_removing_100g_pasta_shortage": true,
+    "captured_console_error_entries": 0,
+    "screenshot": "private actual browser image held"
+  },
+  "official_cli_local_preflight": {
+    "package": "@qmuse/qmuse-cli",
+    "version": "1.0.14",
+    "read_only_internal_preflight_function": true,
+    "public_cli_command": false,
+    "fetch_disabled": true,
+    "network_calls": 0,
+    "accepted_source_files": 19,
+    "source_bytes": 246828,
+    "source_hash": "afc27a1cf0645d596f4ea184008cd79463021412d7965885d986cae439c2560d",
+    "authentication": "not logged in"
+  },
+  "independent_review": "React event connections reviewed; missing-stock recipe save bug fixed and browser-reverified; no unresolved blocker found in reviewed scope",
+  "production_build": {
+    "passed": true,
+    "files": 5,
+    "bytes": 387382,
+    "licenses_included": true,
+    "true_compiled_bridge_execution_regression": true
+  },
+  "limitations": [
+    "Local desktop development and production previews, not a phone/WebView or QMuse-hosted application",
+    "Behavior checks cover the named paths; not all browser/storage/concurrency failures",
+    "Local preflight is version-specific and does not establish platform import, security scan, release or contest acceptance",
+    "Deterministic browser planner with local inventory; no runtime LLM, remote payment or authenticated cloud data"
+  ],
+  "qmuse_authenticated": false,
+  "qmuse_imported": false,
+  "qmuse_deployed": false,
+  "alipay_contest_submitted": false,
+  "production_browser_verification": {
+    "initial_failure": {
+      "asset": "index-Cz_teKbu.js",
+      "message": "Local pantry core failed to load.",
+      "blank_page_observed": true
+    },
+    "repair": "Resolve UMD production CommonJS exports through a namespace/default module bridge, with development global fallback; vendor originals unchanged.",
+    "repaired_asset": "index-bohgKTnG.js",
+    "actual_local_production_browser_run": true,
+    "explicit_review_consumption_300_to_100g_and_4_to_2_items": true,
+    "reload_retained_revision_one_and_receipt": true,
+    "undo_restored_300g_and_4_items_with_reversed_receipt_revision_two": true,
+    "new_console_errors_after_repair": 0
+  }
+}

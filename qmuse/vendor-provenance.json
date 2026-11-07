@@ -1,0 +1,22 @@
+{
+  "source_commit": "962ceddf7171b3c92b62be12e5f950b7b199de12",
+  "implementation_license": "MIT",
+  "purpose": "Unmodified copies from the same repository; self-contained source for QMuse upload. Browser UI is React, not the original imperative app.",
+  "files": [
+    {
+      "source": "web/core.js",
+      "vendored": "src/vendor/core.js",
+      "sha256": "d52a86e59e127a011f17646c6194f8991e38d747fe6acf31c457cd6400bcea17"
+    },
+    {
+      "source": "web/demo.js",
+      "vendored": "src/vendor/demo.js",
+      "sha256": "7bb5ba4ded9695b2af3876edee658b1175caa634335af81b5397094ba41b92d9"
+    },
+    {
+      "source": "web/styles.css",
+      "vendored": "src/vendor/styles.css",
+      "sha256": "92dc808478367e55d6328ce47ce0d07b152ece4c7f29cb11c4b9bd3825b7a4cd"
+    }
+  ]
+}

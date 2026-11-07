@@ -1,0 +1,24 @@
+.dialog-form {
+  display: grid;
+  gap: 15px;
+  margin-top: 18px;
+}
+.review-body {
+  margin: 20px 0;
+}
+.confirm-button {
+  margin-top: 18px;
+}
+.draft-warning {
+  color: #925128;
+}
+.ledger details {
+  color: var(--muted);
+}
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #d77941;
+  outline-offset: 3px;
+}

@@ -89,3 +89,9 @@ curl -X POST -H "Authorization: Bearer $PANTRY_API_TOKEN" \
 赛事为支付宝「智能体涌现奖」第一赛季“AI 生活好帮手”方向。最新延期公告写 **2026-12-06 零点（北京时间）**，按 **2026-12-05 16:00 UTC** 准备；规则正文另有时刻冲突，须最终核对门户。个人身份/实名认证资格尚待使用者确认，具体规则和交付差距见 [docs/competition.md](docs/competition.md)。本作品专为该赛事候选准备，不能将同一作品重复投其他大赛。
 
 MIT，见 [LICENSE](LICENSE)。
+
+## QMuse React 工程
+
+`qmuse/`新增可独立构建的真实React+Vite版本，保留同一核心门禁逻辑；原离线HTML包不变。运行 `cd qmuse && npm ci && npm run dev`。官方CLI的只读本地格式预检、构建和桌面浏览器交互已完成，仍未登录QMuse、导入、发布或交件。详见[工程核查](docs/qmuse-project.md)和[真实React浏览器记录](docs/evidence/qmuse-react-web-20261107.json)。
+
+可上传体验包另有[React生产HTML ZIP](releases/pantry-relay-react-html.zip)（约97KB，含原始许可）与[打包校验](releases/react-package-audit.json)。该包已在本地生产预览实跑，不代表支付宝后台接受上传。

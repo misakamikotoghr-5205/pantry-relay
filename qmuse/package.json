@@ -1,0 +1,26 @@
+{
+  "name": "pantry-relay-qmuse-react",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5174",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4174",
+    "check": "node scripts/check.mjs",
+    "verify": "npm run check && npm run check:production && npm run build",
+    "check:production": "node scripts/check-production-bridge.mjs"
+  },
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "6.2.1",
+    "vite": "8.3.6"
+  }
+}

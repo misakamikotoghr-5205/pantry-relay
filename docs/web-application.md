@@ -41,4 +41,4 @@ localStorage权限/配额异常时降级为内存并提示导出。损坏保存�
 
 ## 发布边界
 
-保留主线程管理的`.openai/hosting.json`及Site ID，静态输出仍为`dist`。本次未另建Site、改ID、推送或发布。主线程若发布owner-private预览，仅供本人查看；支付宝认可路径、真实账号/条款和报名提交仍需在平台核验。
+保留主线程管理的`.openai/hosting.json`及Site ID，静态输出仍为`dist`。主线程已将离线静态版发布到[同一Site的仅所有者预览](https://pantry-relay-2026.ghraurora1024.chatgpt.site)，未改变访问受众。它不能作为支付宝认可平台URL。独立的`qmuse/` React工程已通过本地检查，尚未在QMuse导入或发布；真实账号/条款和报名提交仍需在官方平台完成。

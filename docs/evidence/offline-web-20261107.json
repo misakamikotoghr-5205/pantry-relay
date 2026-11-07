@@ -46,8 +46,15 @@
   },
   "zip_audit": "../../releases/package-audit.json",
   "site_identity_preserved": true,
-  "published_by_this_work": false,
   "alipay_connected": false,
   "formally_submitted": false,
-  "safety_guarantee": false
+  "safety_guarantee": false,
+  "author_subtask_published": false,
+  "main_operator_initial_private_publication": {
+    "url": "https://pantry-relay-2026.ghraurora1024.chatgpt.site",
+    "source_commit": "962ceddf7171b3c92b62be12e5f950b7b199de12",
+    "audience": "owner-private",
+    "native_status": "succeeded",
+    "alipay_or_qmuse_release": false
+  }
 }
