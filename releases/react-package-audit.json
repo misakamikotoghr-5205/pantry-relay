@@ -1,7 +1,7 @@
 {
   "archive": "releases/pantry-relay-react-html.zip",
-  "bytes": 97053,
-  "sha256": "a00467601c223060394315e152568de4c98434120aab137d750da21e4239beba",
+  "bytes": 97252,
+  "sha256": "bcacef8b7012c38fa20f43b252b72904322334ccc63e9c48f2b323ab84d34228",
   "root_index": true,
   "crc_and_build_match": true,
   "production_browser_loaded_and_review_consume_reload_undo_verified": true,
@@ -34,6 +34,20 @@
       "path": "index.html",
       "bytes": 536,
       "sha256": "5a9d84a1690617e584c88929eebb9d49b11835750ccbe51d9c3ed4b0ae767ee1"
+    },
+    {
+      "path": "package.json",
+      "bytes": 122,
+      "sha256": "7db3a20ac0ecc5b82d992085d0888e253cfd39faeb12fd1e66fb71447aa6a454"
     }
-  ]
+  ],
+  "root_package_metadata": {
+    "name": "pantry-relay-qmuse-react",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "license": "MIT"
+  },
+  "package_metadata_added_on": "2026-11-10",
+  "runtime_files_unchanged_from_browser_verified_build": true
 }

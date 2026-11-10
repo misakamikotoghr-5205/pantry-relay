@@ -95,3 +95,5 @@ MIT，见 [LICENSE](LICENSE)。
 `qmuse/`新增可独立构建的真实React+Vite版本，保留同一核心门禁逻辑；原离线HTML包不变。运行 `cd qmuse && npm ci && npm run dev`。官方CLI的只读本地格式预检、构建和桌面浏览器交互已完成，仍未登录QMuse、导入、发布或交件。详见[工程核查](docs/qmuse-project.md)和[真实React浏览器记录](docs/evidence/qmuse-react-web-20261107.json)。
 
 可上传体验包另有[React生产HTML ZIP](releases/pantry-relay-react-html.zip)（约97KB，含原始许可）与[打包校验](releases/react-package-audit.json)。该包已在本地生产预览实跑，不代表支付宝后台接受上传。
+
+11月10日按官方上传表的最新目录要求补入根目录 `package.json`（有效项目名与版本）；`python3 scripts/package-react.py` 可重新打包。原来五个浏览器验证过的页面、脚本、样式及许可文件逐字节未变，新包97,252字节。实际选择该包并点击提交审核后，平台返回“登录已失效”，尚未确认上传成功或取得交件回执。
