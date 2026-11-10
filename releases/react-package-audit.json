@@ -8,7 +8,7 @@
   "licenses_included": true,
   "remote_runtime_api_or_model": false,
   "qmuse_uploaded_or_deployed": false,
-  "official_contest_submitted": false,
+  "official_contest_submitted": true,
   "files": [
     {
       "path": "LICENSE.txt",
@@ -49,5 +49,8 @@
     "license": "MIT"
   },
   "package_metadata_added_on": "2026-11-10",
-  "runtime_files_unchanged_from_browser_verified_build": true
+  "runtime_files_unchanged_from_browser_verified_build": true,
+  "submission_receipt": "docs/evidence/submission-receipt-20261110.json",
+  "zip_security_review_passed": false,
+  "public_deployment_confirmed": false
 }

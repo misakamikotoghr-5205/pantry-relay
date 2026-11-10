@@ -1,0 +1,31 @@
+{
+  "project": "pantry-relay",
+  "event": "支付宝智能体涌现奖第一赛季",
+  "observed_at": "2026-11-10T09:08:24.295Z",
+  "formally_submitted": true,
+  "status": "submitted_under_review",
+  "official_card_title": "余量接力：开封时钟与库存回执",
+  "official_card_badge": "审核中",
+  "official_zip_status": "ZIP 安全审核尚未完成",
+  "withdraw_review_button_observed": true,
+  "observed_project_count": 1,
+  "official_event_url": "https://emerge.alipay.com/",
+  "source_repository": "https://github.com/misakamikotoghr-5205/pantry-relay",
+  "submitted_source_commit": "cd8b96ce3f5b31aa867fdb6c1f9ea6fc684d7068",
+  "archive": {
+    "path": "releases/pantry-relay-react-html.zip",
+    "bytes": 97252,
+    "sha256": "bcacef8b7012c38fa20f43b252b72904322334ccc63e9c48f2b323ab84d34228",
+    "root_package_name": "pantry-relay-qmuse-react",
+    "root_package_version": "1.0.0"
+  },
+  "evidence": "Main operator completed the current authorized SMS login, observed recovery of the existing draft, reselected the corrected ZIP and clicked 提交审核. The official portal created a publication task, returned automatically to the participant centre and changed the same project card from 草稿 to 审核中 with 撤销审核 and ZIP safety review pending.",
+  "zip_security_review_passed": false,
+  "organizer_review_passed": false,
+  "public_deployment_confirmed": false,
+  "alipay_or_abao_runtime_api_integration": false,
+  "qmuse_remote_import_or_publish": false,
+  "runtime_llm_in_submitted_static_zip": false,
+  "confirmation_email_claimed": false,
+  "receipt_number_observed": false
+}
